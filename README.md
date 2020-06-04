@@ -1,0 +1,2 @@
+# administracion-hospitales
+Java,  typeScript
