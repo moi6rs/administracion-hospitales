@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 public interface EspecialidadRepository extends CrudRepository<Especialidad, Long> {
-    @Query("select h from Especialidad h where h.nombre like %?1%")
+    @Query("select e from Especialidad e where e.nombre like %?1%")
     List<Especialidad> findByNombre(String nombreEspecialidad);
 
     List<Especialidad> findByFechaCreacion(Date date);
