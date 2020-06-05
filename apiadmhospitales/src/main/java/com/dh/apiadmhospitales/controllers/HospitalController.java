@@ -3,6 +3,7 @@ package com.dh.apiadmhospitales.controllers;
 import com.dh.apiadmhospitales.models.entity.Hospital;
 import com.dh.apiadmhospitales.models.repository.HospitalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Optional;
 
 @RestController
@@ -21,7 +21,7 @@ public class HospitalController {
     private HospitalRepository repository;
 
     @GetMapping
-    public ResponseEntity<?> findAll() {
+    public ResponseEntity<?> listar() {
         return ResponseEntity.ok().body(repository.findAll());
     }
 
@@ -64,5 +64,10 @@ public class HospitalController {
     @GetMapping("filtrar/fecha-creacion/{fecha}")
     public ResponseEntity<?> filtrarFechaCreacion(@PathVariable String fecha) throws ParseException {
         return ResponseEntity.ok(repository.findByFechaCreacion(new SimpleDateFormat("yyyy-MM-dd").parse(fecha)));
+    }
+
+    @GetMapping("/pagina")
+    public ResponseEntity<?> listarPaginable(Pageable pageable){
+        return ResponseEntity.ok().body(repository.findAll(pageable));
     }
 }

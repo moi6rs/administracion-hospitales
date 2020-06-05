@@ -1,6 +1,8 @@
 package com.dh.apiadmhospitales.models.repository;
 
 import com.dh.apiadmhospitales.models.entity.Hospital;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -13,4 +15,6 @@ public interface HospitalRepository extends CrudRepository<Hospital,Long> {
     public List<Hospital> findByNombreHospital(String nombreHospital);
 
     public List<Hospital> findByFechaCreacion(Date date);
+
+    public Page<Hospital> findAll(Pageable pageable);
 }
