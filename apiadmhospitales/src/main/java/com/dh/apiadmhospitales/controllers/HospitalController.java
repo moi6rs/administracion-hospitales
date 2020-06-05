@@ -5,8 +5,10 @@ import com.dh.apiadmhospitales.models.repository.HospitalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
@@ -21,12 +23,18 @@ public class HospitalController {
     }
 
     @PostMapping
-    public ResponseEntity<?> crear(@RequestBody Hospital hospital){
+    public ResponseEntity<?> crear(@Valid  @RequestBody Hospital hospital, BindingResult result){
+        if (result.hasErrors()) {
+            return new Validador().validar(result);
+        }
         return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(hospital));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> actualizar(@RequestBody Hospital hospital, @PathVariable Long id){
+    public ResponseEntity<?> actualizar(@Valid @RequestBody Hospital hospital, BindingResult result, @PathVariable Long id){
+        if (result.hasErrors()) {
+            return new Validador().validar(result);
+        }
         Optional<Hospital> hospitalOptional = repository.findById(id);
         ResponseEntity responseEntity = null;
         if(hospitalOptional.isPresent()){
