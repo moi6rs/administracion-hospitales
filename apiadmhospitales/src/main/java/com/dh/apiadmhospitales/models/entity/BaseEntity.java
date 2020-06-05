@@ -12,10 +12,12 @@ public class BaseEntity {
     private Long id;
 
     @JsonIgnore
+    @Temporal(TemporalType.DATE)
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
 
     @JsonIgnore
+    @Temporal(TemporalType.DATE)
     @Column(name = "fecha_actualizacion")
     private Date fechaActualizacion;
 
@@ -28,12 +30,12 @@ public class BaseEntity {
     private Long actualizadoPor;
 
     @PrePersist
-    public void prePersist(){
+    public void prePersist() {
         fechaCreacion = new Date();
     }
 
     @PreUpdate
-    public void preUpdate(){
+    public void preUpdate() {
         fechaActualizacion = new Date();
     }
 

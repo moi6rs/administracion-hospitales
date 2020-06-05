@@ -9,6 +9,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Optional;
 
 @RestController
@@ -18,12 +21,12 @@ public class HospitalController {
     private HospitalRepository repository;
 
     @GetMapping
-    public ResponseEntity<?> findAll(){
-        return  ResponseEntity.ok().body(repository.findAll());
+    public ResponseEntity<?> findAll() {
+        return ResponseEntity.ok().body(repository.findAll());
     }
 
     @PostMapping
-    public ResponseEntity<?> crear(@Valid  @RequestBody Hospital hospital, BindingResult result){
+    public ResponseEntity<?> crear(@Valid @RequestBody Hospital hospital, BindingResult result) {
         if (result.hasErrors()) {
             return new Validador().validar(result);
         }
@@ -31,17 +34,17 @@ public class HospitalController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> actualizar(@Valid @RequestBody Hospital hospital, BindingResult result, @PathVariable Long id){
+    public ResponseEntity<?> actualizar(@Valid @RequestBody Hospital hospital, BindingResult result, @PathVariable Long id) {
         if (result.hasErrors()) {
             return new Validador().validar(result);
         }
         Optional<Hospital> hospitalOptional = repository.findById(id);
         ResponseEntity responseEntity = null;
-        if(hospitalOptional.isPresent()){
+        if (hospitalOptional.isPresent()) {
             Hospital hospitalDb = hospitalOptional.get();
             hospitalDb.setNombreHospital(hospital.getNombreHospital());
             responseEntity = ResponseEntity.status(HttpStatus.CREATED).body(repository.save(hospitalDb));
-        }else{
+        } else {
             responseEntity = ResponseEntity.notFound().build();
         }
         return responseEntity;
@@ -51,5 +54,15 @@ public class HospitalController {
     public ResponseEntity<?> eliminar(@PathVariable Long id) {
         repository.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("filtrar/{nombre}")
+    public ResponseEntity<?> filtrarNombreHospital(@PathVariable String nombre) {
+        return ResponseEntity.ok(repository.findByNombreHospital(nombre));
+    }
+
+    @GetMapping("filtrar/fecha-creacion/{fecha}")
+    public ResponseEntity<?> filtrarFechaCreacion(@PathVariable String fecha) throws ParseException {
+        return ResponseEntity.ok(repository.findByFechaCreacion(new SimpleDateFormat("yyyy-MM-dd").parse(fecha)));
     }
 }
