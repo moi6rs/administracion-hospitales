@@ -1,6 +1,7 @@
 package com.dh.apiadmhospitales.models.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -16,7 +17,7 @@ public class Paciente extends BaseEntity {
     @NotEmpty
     private String apellido;
 
-    @NotEmpty
+    @NotNull
     @Temporal(TemporalType.DATE)
     private Date fechaNacimiento;
 
@@ -25,7 +26,7 @@ public class Paciente extends BaseEntity {
 
     @Lob
     @JsonIgnore
-    private Byte[] foto;
+    private byte[] foto;
 
     public Integer getFotoHashCode() {
         return (this.foto != null) ? this.foto.hashCode() : null;
@@ -62,11 +63,11 @@ public class Paciente extends BaseEntity {
         this.direccion = direccion;
     }
 
-    public Byte[] getFoto() {
+    public byte[] getFoto() {
         return foto;
     }
 
-    public void setFoto(Byte[] foto) {
+    public void setFoto(byte[] foto) {
         this.foto = foto;
     }
 }
