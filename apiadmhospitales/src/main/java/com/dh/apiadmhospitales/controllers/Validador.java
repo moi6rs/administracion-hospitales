@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Validador {
-    protected ResponseEntity<?> validar(BindingResult result) {
+    public ResponseEntity<?> validar(BindingResult result) {
         Map<String, Object> errores = new HashMap<>();
         result.getFieldErrors().forEach(error -> {
             errores.put(error.getField(), " El campo " + error.getField() + " " + error.getDefaultMessage());
