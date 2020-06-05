@@ -14,6 +14,8 @@ public class Especialidad extends BaseEntity {
     @NotEmpty
     private String nombre;
 
+    private String descripcion;
+
     @Lob
     @JsonIgnore
     private byte[] avatar;
@@ -36,5 +38,13 @@ public class Especialidad extends BaseEntity {
 
     public void setAvatar(byte[] avatar) {
         this.avatar = avatar;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

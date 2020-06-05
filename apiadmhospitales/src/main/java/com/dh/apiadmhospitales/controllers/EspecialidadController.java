@@ -60,6 +60,7 @@ public class EspecialidadController {
         if (especialidadOptional.isPresent()) {
             Especialidad especialidadDb = especialidadOptional.get();
             especialidadDb.setNombre(especialidad.getNombre());
+            especialidadDb.setDescripcion(especialidad.getDescripcion());
             responseEntity = ResponseEntity.status(HttpStatus.CREATED).body(repository.save(especialidadDb));
         } else {
             responseEntity = ResponseEntity.notFound().build();
@@ -78,6 +79,7 @@ public class EspecialidadController {
         if (especialidadOptional.isPresent()) {
             Especialidad especialidadDb = especialidadOptional.get();
             especialidadDb.setNombre(especialidad.getNombre());
+            especialidadDb.setDescripcion(especialidad.getDescripcion());
             if (!archivo.isEmpty()) {
                 especialidadDb.setAvatar(archivo.getBytes());
             }
