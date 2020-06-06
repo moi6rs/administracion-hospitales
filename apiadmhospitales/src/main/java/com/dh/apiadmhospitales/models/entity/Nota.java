@@ -3,11 +3,12 @@ package com.dh.apiadmhospitales.models.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "notas")
-public class Nota extends BaseEntity{
+public class Nota extends BaseEntity implements Serializable {
     @NotEmpty
     @Column
     private String descripcion;
@@ -19,11 +20,11 @@ public class Nota extends BaseEntity{
 
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Doctor doctor;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Paciente paciente;
 
     public String getDescripcion() {
