@@ -48,6 +48,7 @@ public class HospitalController {
         if (hospitalOptional.isPresent()) {
             Hospital hospitalDb = hospitalOptional.get();
             hospitalDb.setNombreHospital(hospital.getNombreHospital());
+            hospitalDb.setDireccion(hospital.getDireccion());
             responseEntity = ResponseEntity.status(HttpStatus.CREATED).body(repository.save(hospitalDb));
         } else {
             responseEntity = ResponseEntity.notFound().build();
