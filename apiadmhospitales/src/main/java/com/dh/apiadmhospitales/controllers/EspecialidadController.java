@@ -18,12 +18,16 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Optional;
-
 @RestController
 @RequestMapping("/especialidades")
 public class EspecialidadController {
     @Autowired
     private EspecialidadRepository repository;
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> ver(@PathVariable Long id) {
+        return ResponseEntity.ok().body(repository.findById(id));
+    }
 
     @GetMapping
     public ResponseEntity<?> listar() {

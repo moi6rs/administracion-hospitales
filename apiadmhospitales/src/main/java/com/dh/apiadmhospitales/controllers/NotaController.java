@@ -8,11 +8,9 @@ import com.dh.apiadmhospitales.models.repository.DoctorRepository;
 import com.dh.apiadmhospitales.models.repository.NotaRepository;
 import com.dh.apiadmhospitales.models.repository.PacienteRepository;
 import com.dh.apiadmhospitales.services.NotaService;
-import org.aspectj.weaver.ast.Not;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +31,11 @@ public class NotaController {
 
     @Autowired
     private NotaService service;
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> ver(@PathVariable Long id) {
+        return ResponseEntity.ok().body(repository.findById(id));
+    }
 
     @PostMapping
     public ResponseEntity<?> crearNota(@Valid @RequestBody NotaDto notaDto, BindingResult result) {
@@ -65,7 +68,7 @@ public class NotaController {
             Optional<Doctor> doctorOptional = doctorRepository.findById(notaDto.getDoctorId());
             Optional<Paciente> pacienteOptional = pacienteRepository.findById(notaDto.getPacienteId());
             if (doctorOptional.isPresent() && pacienteOptional.isPresent()) {
-                Nota nota = service.crearActualizarNota(notaDto,id);
+                Nota nota = service.crearActualizarNota(notaDto, id);
                 responseEntity = ResponseEntity.status(HttpStatus.CREATED).body(nota);
             } else {
                 responseEntity = ResponseEntity.notFound().build();
