@@ -25,6 +25,11 @@ public class HospitalController {
         return ResponseEntity.ok().body(repository.findAll());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> ver(@PathVariable Long id) {
+        return ResponseEntity.ok().body(repository.findById(id));
+    }
+
     @PostMapping
     public ResponseEntity<?> crear(@Valid @RequestBody Hospital hospital, BindingResult result) {
         if (result.hasErrors()) {
@@ -43,6 +48,7 @@ public class HospitalController {
         if (hospitalOptional.isPresent()) {
             Hospital hospitalDb = hospitalOptional.get();
             hospitalDb.setNombreHospital(hospital.getNombreHospital());
+            hospitalDb.setDireccion(hospital.getDireccion());
             responseEntity = ResponseEntity.status(HttpStatus.CREATED).body(repository.save(hospitalDb));
         } else {
             responseEntity = ResponseEntity.notFound().build();

@@ -11,12 +11,11 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnore
+
     @Temporal(TemporalType.DATE)
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
 
-    @JsonIgnore
     @Temporal(TemporalType.DATE)
     @Column(name = "fecha_actualizacion")
     private Date fechaActualizacion;

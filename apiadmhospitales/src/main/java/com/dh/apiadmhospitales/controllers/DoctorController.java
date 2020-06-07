@@ -30,6 +30,11 @@ public class DoctorController {
         return ResponseEntity.ok().body(repository.findAll());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> ver(@PathVariable Long id) {
+        return ResponseEntity.ok().body(repository.findById(id));
+    }
+
     @PostMapping
     public ResponseEntity<?> crear(@Valid @RequestBody Doctor doctor, BindingResult result) {
         if (result.hasErrors()) {

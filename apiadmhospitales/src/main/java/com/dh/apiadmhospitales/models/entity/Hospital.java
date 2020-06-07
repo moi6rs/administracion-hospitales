@@ -12,11 +12,23 @@ public class Hospital extends BaseEntity {
     @NotEmpty
     private String nombreHospital;
 
+
+    @NotEmpty
+    private String direccion;
+
     public String getNombreHospital() {
         return nombreHospital;
     }
 
     public void setNombreHospital(String nombreHospital) {
         this.nombreHospital = nombreHospital;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }
