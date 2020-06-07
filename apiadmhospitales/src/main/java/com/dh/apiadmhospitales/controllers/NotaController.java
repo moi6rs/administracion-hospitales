@@ -18,7 +18,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/notas")
+@RequestMapping("/api/notas")
 public class NotaController {
     @Autowired
     private NotaRepository repository;

@@ -19,7 +19,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Optional;
 @RestController
-@RequestMapping("/pacientes")
+@RequestMapping("/api/pacientes")
 public class PacienteController {
     @Autowired
     private PacienteRepository repository;

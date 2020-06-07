@@ -20,7 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/doctores")
+@RequestMapping("/api/doctores")
 public class DoctorController {
     @Autowired
     private DoctorRepository repository;

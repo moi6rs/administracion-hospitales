@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/hospitales")
+@RequestMapping("/api/hospitales")
 public class HospitalController {
     @Autowired
     private HospitalRepository repository;

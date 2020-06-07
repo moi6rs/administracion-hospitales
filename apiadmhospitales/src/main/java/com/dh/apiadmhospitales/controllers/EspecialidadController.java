@@ -19,7 +19,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Optional;
 @RestController
-@RequestMapping("/especialidades")
+@RequestMapping("/api/especialidades")
 public class EspecialidadController {
     @Autowired
     private EspecialidadRepository repository;
