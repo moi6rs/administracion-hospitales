@@ -32,7 +32,7 @@
     ```
 2. Ejecutar Api
     ```shell
-    java -jar target\workshop-tracker-server.jar
+    java -jar target/apiadmhospitales-0.0.1-SNAPSHOT.jar
     ```
 3. Todo en uno
     ```shell
