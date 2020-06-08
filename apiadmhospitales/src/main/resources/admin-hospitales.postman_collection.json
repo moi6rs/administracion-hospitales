@@ -1,0 +1,1267 @@
+{
+	"info": {
+		"_postman_id": "39e02ced-7d6d-4e6e-9781-63f6edf620de",
+		"name": "admin-hospitales",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "hospital",
+			"item": [
+				{
+					"name": "crearHospitales",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":null,\n\t\"nombreHospital\": \"Hospital Univalle\",\n\t\"direccion\": \"Zona Norte\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/hospitales",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hospitales"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarHospitales",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/hospitales",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"hospitales"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarHospital",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/hospitales/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hospitales",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarHospital",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":null,\n\t\"nombreHospital\": \"Hospital Copacabana\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/hospitales/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hospitales",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPorNombreHospital",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/hospitales/filtrar/Cercado",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hospitales",
+								"filtrar",
+								"Cercado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPorFechaCreacionHospital",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/hospitales/filtrar/fecha-creacion/2020-06-05dsfgsd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hospitales",
+								"filtrar",
+								"fecha-creacion",
+								"2020-06-05dsfgsd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "paginaHospitales",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/hospitales/pagina?page=0&size=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hospitales",
+								"pagina"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Especialidad",
+			"item": [
+				{
+					"name": "crearEspecialidad",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":null,\n\t\"nombre\": \"Nutricion\",\n\t\"descripcion\": \"A nivel Licenciatura\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/especialidades",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"especialidades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarEspecialidad",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/especialidades",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"especialidades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarEspecialidad",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/especialidades/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"especialidades",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarEspecialidad",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":null,\n\t\"nombre\": \"Lic. Nutrición y Dietética\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/especialidades/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"especialidades",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPorNombreEspecialidad",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/especialidades/filtrar/Nutricion",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"especialidades",
+								"filtrar",
+								"Nutricion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPorFechaCreacionEspecialidad",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/hospitales/filtrar/fecha-creacion/2020-06-05",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hospitales",
+								"filtrar",
+								"fecha-creacion",
+								"2020-06-05"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "paginaEspecialidad",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/especialidades/pagina?page=0&size=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"especialidades",
+								"pagina"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarAvatarEspecialidad",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/C:/Users/ramseg/Desktop/dh/radiologo.jpg"
+								},
+								{
+									"key": "nombre",
+									"value": "Radiologo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/especialidades/actualizar-con-avatar/7",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"especialidades",
+								"actualizar-con-avatar",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verAvatarEspecialidadPorId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/documentos/especialidad/img/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"documentos",
+								"especialidad",
+								"img",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crearAvatarEspecialidad",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/C:/Users/ramseg/Desktop/dh/angel.jpg"
+								},
+								{
+									"key": "nombre",
+									"value": "Destinta",
+									"type": "text"
+								},
+								{
+									"key": "descripcion",
+									"value": "A nivel Nivel Licenciatura",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/especialidades/crear-con-avatar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"especialidades",
+								"crear-con-avatar"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Paciente",
+			"item": [
+				{
+					"name": "crearPaciente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":null,\n\t\"nombre\": \"Calos\",\n\t\"apellido\": \"Rivera\",\n\t\"fechaNacimiento\":\"1990-08-11\",\n\t\"direccion\": \"Barrio Solterito\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/pacientes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pacientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarPacientes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/pacientes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pacientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarPaciente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/pacientes/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pacientes",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarPaciente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":null,\n\t\"nombre\": \"Calos\",\n\t\"apellido\": \"Rivera\",\n\t\"fechaNacimiento\":\"1990-08-11\",\n\t\"direccion\": \"Barrio Solterito\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/especialidades/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"especialidades",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPorNombrePaciente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/especialidades/filtrar/Nutricion",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"especialidades",
+								"filtrar",
+								"Nutricion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPorFechaCreacionPaciente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/hospitales/filtrar/fecha-creacion/2020-06-05",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hospitales",
+								"filtrar",
+								"fecha-creacion",
+								"2020-06-05"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "paginaPaciente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/pacientes/pagina?page=0&size=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pacientes",
+								"pagina"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarFotoPaciente",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/C:/Users/ramseg/Desktop/dh/paciente 2.jpg"
+								},
+								{
+									"key": "nombre",
+									"value": "Alejando",
+									"type": "text"
+								},
+								{
+									"key": "apellido",
+									"value": "Gusman",
+									"type": "text"
+								},
+								{
+									"key": "fechaNacimiento",
+									"value": "1988/08/18",
+									"type": "text"
+								},
+								{
+									"key": "direccion",
+									"value": "Cercado",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/pacientes/actualizar-con-foto/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pacientes",
+								"actualizar-con-foto",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verFotoPacientePorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/documentos/paciente/img/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"documentos",
+								"paciente",
+								"img",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crearFotoPaciente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/C:/Users/ramseg/Desktop/dh/tortuga.jpg"
+								},
+								{
+									"key": "nombre",
+									"value": "Ramseg",
+									"type": "text"
+								},
+								{
+									"key": "apellido",
+									"value": "Mogro",
+									"type": "text"
+								},
+								{
+									"key": "fechaNacimiento",
+									"value": "2018/02/12",
+									"type": "text"
+								},
+								{
+									"key": "direccion",
+									"value": "Villa Pagador",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/pacientes/crear-con-foto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pacientes",
+								"crear-con-foto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verPacienteId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/pacientes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pacientes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Doctor",
+			"item": [
+				{
+					"name": "crearDoctor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\": \"Zulma\",\n\t\"apellido\": \"Mogro\",\n\t\"fechaNacimiento\":\"1989-02-18\",\n\t\"direccion\": \"Barrio Solterito\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/doctores",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarDoctores",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/doctores",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"doctores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarDoctor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/pacientes/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pacientes",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarDoctor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":null,\n\t\"nombre\": \"Calos\",\n\t\"apellido\": \"Rivera\",\n\t\"fechaNacimiento\":\"1990-08-11\",\n\t\"direccion\": \"Barrio Solterito\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/doctores/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPorNombreDoctor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/doctores/filtrar/Nutricion",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctores",
+								"filtrar",
+								"Nutricion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPorFechaCreacionDoctor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/doctores/filtrar/fecha-creacion/2020-06-05",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctores",
+								"filtrar",
+								"fecha-creacion",
+								"2020-06-05"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "paginaDoctor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/doctores/pagina?page=0&size=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctores",
+								"pagina"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarFotoDoctor",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/C:/Users/ramseg/Desktop/dh/persona.jpg"
+								},
+								{
+									"key": "nombre",
+									"value": "Jimena",
+									"type": "text"
+								},
+								{
+									"key": "apellido",
+									"value": "Torrez",
+									"type": "text"
+								},
+								{
+									"key": "fechaNacimiento",
+									"value": "1972/12/23",
+									"type": "text"
+								},
+								{
+									"key": "direccion",
+									"value": "Villa Israel",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/doctores/actualizar-con-foto/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"doctores",
+								"actualizar-con-foto",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verFotoDoctorPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/doctores/uploads/img/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctores",
+								"uploads",
+								"img",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crearFotoDoctor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/C:/Users/ramseg/Desktop/dh/tortuga.jpg"
+								},
+								{
+									"key": "nombre",
+									"value": "Ramseg",
+									"type": "text"
+								},
+								{
+									"key": "apellido",
+									"value": "Mogro",
+									"type": "text"
+								},
+								{
+									"key": "fechaNacimiento",
+									"value": "2018/02/12",
+									"type": "text"
+								},
+								{
+									"key": "direccion",
+									"value": "Villa Pagador",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/doctores/crear-con-foto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctores",
+								"crear-con-foto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "doctorPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/doctores/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Nota",
+			"item": [
+				{
+					"name": "crearNota",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"descripcion\": \"Atencion de nuevas nuevas\",\n\t\"fecha\": \"2020-06-06\",\n\t\"doctorId\": 1,\n\t\"pacienteId\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/notas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"notas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarNota",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"descripcion\": \"Atencion de bronquitis Cronica\",\n\t\"fecha\": \"2020-06-05\",\n\t\"doctorId\": 1,\n\t\"pacienteId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/notas/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"notas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "usuario",
+			"item": [
+				{
+					"name": "createUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Moises Ramos Segovia\",\n\t\"username\": \"moises\",\n\t\"email\": \"moises@outlook.com\",\n\t\"role\":[\n\t\t\"administrador\"\n\t\t],\n\t\"password\": \"A123456a*\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/signup",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "singInUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\":\"moises\",\n\t\"password\": \"A123456a*\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/signin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
