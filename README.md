@@ -1,4 +1,4 @@
-# API REST HADMINISTRACIÓN HOSPITALES
+# API REST ADMINISTRACIÓN HOSPITALES
 ### Herramientas
 + Java 8
 + Maven 3.x
@@ -24,7 +24,7 @@
         com.dh.apiadmhospitales.jwtSecret=jwtSecretKey
         com.dh.apiadmhospitales.jwtExpiration=86400
     ```
-+ Se crear una base datos con nombre de *db_hospitales* con configuración *utf8_general_ci*
++ Se debe crear una base datos con nombre de *db_hospitales* con configuración *utf8_general_ci*
 + Mapiar las tablas con los comandos:
 1. Descargar
     ```shell
