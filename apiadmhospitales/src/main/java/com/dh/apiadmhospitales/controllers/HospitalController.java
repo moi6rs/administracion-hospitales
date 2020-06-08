@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/hospitales")
 public class HospitalController {
     @Autowired

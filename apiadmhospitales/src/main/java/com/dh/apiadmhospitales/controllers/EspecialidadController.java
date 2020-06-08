@@ -19,6 +19,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Optional;
 @RestController
+@CrossOrigin
 @RequestMapping("/api/especialidades")
 public class EspecialidadController {
     @Autowired
@@ -113,18 +114,5 @@ public class EspecialidadController {
     @GetMapping("/pagina")
     public ResponseEntity<?> listarPaginable(Pageable pageable) {
         return ResponseEntity.ok().body(repository.findAll(pageable));
-    }
-
-    @GetMapping("uploads/img/{id}")
-    public ResponseEntity<?> verAvatar(@PathVariable Long id) {
-        Optional<Especialidad> optionalEspecialidad = repository.findById(id);
-
-        if (!optionalEspecialidad.isPresent() || optionalEspecialidad.get().getAvatar() == null) {
-            return ResponseEntity.notFound().build();
-        }
-
-        Resource imagen = new ByteArrayResource(optionalEspecialidad.get().getAvatar());
-
-        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imagen);
     }
 }

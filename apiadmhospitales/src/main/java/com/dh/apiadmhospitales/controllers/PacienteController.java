@@ -19,6 +19,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Optional;
 @RestController
+@CrossOrigin
 @RequestMapping("/api/pacientes")
 public class PacienteController {
     @Autowired
@@ -117,18 +118,5 @@ public class PacienteController {
     @GetMapping("/pagina")
     public ResponseEntity<?> listarPaginable(Pageable pageable) {
         return ResponseEntity.ok().body(repository.findAll(pageable));
-    }
-
-    @GetMapping("uploads/img/{id}")
-    public ResponseEntity<?> verFoto(@PathVariable Long id) {
-        Optional<Paciente> optionalPaciente = repository.findById(id);
-
-        if (!optionalPaciente.isPresent() || optionalPaciente.get().getFoto() == null) {
-            return ResponseEntity.notFound().build();
-        }
-
-        Resource imagen = new ByteArrayResource(optionalPaciente.get().getFoto());
-
-        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imagen);
     }
 }
