@@ -18,7 +18,8 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/notas")
+@CrossOrigin
+@RequestMapping("/api/notas")
 public class NotaController {
     @Autowired
     private NotaRepository repository;
